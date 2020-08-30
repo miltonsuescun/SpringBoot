@@ -1,0 +1,5 @@
+package com.springboot.app.item.controller;
+
+public class ItemController {
+
+}
