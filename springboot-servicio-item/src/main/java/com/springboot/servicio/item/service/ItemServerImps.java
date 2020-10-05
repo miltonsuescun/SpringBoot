@@ -12,13 +12,13 @@ import org.springframework.web.client.RestTemplate;
 
 import com.springboot.servicio.item.models.Item;import com.springboot.servicio.item.models.Producto;
 
-@Service
+@Service("serviceRestTemplate")
 public class ItemServerImps implements ItemService {
 	@Autowired
 	private RestTemplate resttemplate;
 	@Override
 	public List<Item> findAll() {
-		List<Producto> productos =Arrays.asList(resttemplate.getForObject("http://localhost:8080/producto/listar", Producto[].class)) ;
+		List<Producto> productos =Arrays.asList(resttemplate.getForObject("http://servicio-productos/producto/listar", Producto[].class)) ;
 		return productos.stream().map(p -> new Item(p,1)).collect(Collectors.toList());
 	}
 
@@ -27,7 +27,7 @@ public class ItemServerImps implements ItemService {
 		Map<String, String> pathVariables = new HashMap<String, String>();
 		pathVariables.put("id",id.toString());
 		
-		Producto producto = resttemplate.getForObject("http://localhost:8080/producto/{id}",Producto.class,pathVariables);
+		Producto producto = resttemplate.getForObject("http://servicio-productos/producto/{id}",Producto.class,pathVariables);
 		
 		return new Item(producto,cantidad);
 	}

@@ -6,14 +6,16 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
 import com.springboot.app.item.clientes.IProductoClienteRest;
 import com.springboot.servicio.item.models.Item;
-@Service
-@Primary
+
+
+@Service("serviceFeing")
+
 public  class ItemServiceFeing implements ItemService {
 	
 	@Autowired
+	
 	private IProductoClienteRest productoFeing;
 
 	@Override
