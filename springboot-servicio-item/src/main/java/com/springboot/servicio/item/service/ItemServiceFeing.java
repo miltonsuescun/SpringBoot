@@ -15,7 +15,6 @@ import com.springboot.servicio.item.models.Item;
 public  class ItemServiceFeing implements ItemService {
 	
 	@Autowired
-	
 	private IProductoClienteRest productoFeing;
 
 	@Override
